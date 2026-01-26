@@ -1,0 +1,16 @@
+BULK INSERT bronze.crm_cust_info
+FROM '/var/opt/sqlfiles/sql-data-warehouse-project-main/datasets/source_crm/cust_info.csv'
+WITH (
+    FIRSTROW = 2,
+    FIELDTERMINATOR = ',',
+    ROWTERMINATOR = '0x0a',
+    TABLOCK
+);
+
+/* Docker volumes are immutable
+
+SQL Server runs in Linux
+
+macOS paths ≠ container paths
+
+Azure Data Studio does NOT handle files — SQL Server does */
