@@ -6,6 +6,8 @@ WITH (
     ROWTERMINATOR = '0x0a',
     TABLOCK
 );
+--checking data--
+SELECT * FROM bronze.crm_cust_info
 
 /* Docker volumes are immutable
 
