@@ -1,3 +1,5 @@
+TRUNCATE TABLE bronze.crm_cust_info
+
 BULK INSERT bronze.crm_cust_info
 FROM '/var/opt/sqlfiles/sql-data-warehouse-project-main/datasets/source_crm/cust_info.csv'
 WITH (
