@@ -1,0 +1,18 @@
+SELECT
+cst_id,
+COUNT(*) duplicate_id
+from bronze.crm_cust_info
+GROUP BY cst_id
+HAVING COUNT(*) > 1
+
+
+
+SELECT
+*
+FROM(
+    SELECT
+*,
+ROW_NUMBER() OVER (PARTITION BY cst_id ORDER by cst_create_date DESC) flaglast
+FROM bronze.crm_cust_info
+
+)t WHERE flaglast = 1
